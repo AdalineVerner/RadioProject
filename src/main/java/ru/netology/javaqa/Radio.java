@@ -1,13 +1,24 @@
 package ru.netology.javaqa;
 
 public class Radio {
-    public static void main(String[] args) {
-        Radio radio = new Radio();
+    private int currentStation;
+    private int volume;
+
+    public int getCurrentStation() {
+        return currentStation;
     }
 
-    public int currentStation;
-    public int volume;
+    public int getVolume() {
+        return volume;
+    }
 
+    public void setCurrentStation(int newCurrentStation) {
+        currentStation = newCurrentStation;
+    }
+
+    public void setVolume(int newVolume) {
+        volume = newVolume;
+    }
 
     public void setToMaxStation() {
         currentStation = 9;
