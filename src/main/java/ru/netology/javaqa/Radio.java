@@ -1,8 +1,23 @@
 package ru.netology.javaqa;
 
 public class Radio {
-    private int currentStation;
-    private int volume;
+
+    private int minStation = 0;
+    private int maxStation = 9;
+    private int currentStation = minStation;
+    private int minVolume = 0;
+    private int maxVolume = 100;
+
+    private int volume = minVolume;
+
+    public Radio(int size) {
+        maxStation = minStation + size;
+
+    }
+
+    public Radio() {
+        int maxStation1 = maxStation;
+    }
 
     public int getCurrentStation() {
         return currentStation;
@@ -20,52 +35,52 @@ public class Radio {
         volume = newVolume;
     }
 
-    public void setToMaxStation() {
-        currentStation = 9;
+    public int getMaxStation() {
+        return maxStation;
     }
 
-    public void setToMaxVolume() {
-        volume = 100;
+    public int getMinStation() {
+        return minStation;
     }
 
-    public void setToMinStation() {
-        currentStation = 0;
+    public int getMaxVolume() {
+        return maxVolume;
     }
 
-    public void setToMinVolume() {
-        volume = 0;
+    public int getMinVolume() {
+        return minVolume;
     }
 
     public void nextStation() {
-        if (currentStation < 9) {
+        if (currentStation < maxStation) {
             currentStation = currentStation + 1;
         } else {
-            currentStation = 0;
+            currentStation = minStation;
         }
     }
 
     public void prevStation() {
-        if (currentStation > 0) {
+        if (currentStation > minStation) {
             currentStation = currentStation - 1;
         } else {
-            currentStation = 9;
+            currentStation = maxStation;
         }
 
     }
 
     public void plusMaxVolume() {
-        if (volume > 100) {
-            volume = 100;
+        if (volume > maxVolume) {
+            volume = maxVolume;
         } else {
             volume = volume + 1;
         }
     }
 
     public void minusMinVolume() {
-        if (volume > 0) {
+        if (volume > minVolume) {
             volume = volume - 1;
         } else {
-            volume = 0;
+            volume = minVolume;
         }
     }
 
